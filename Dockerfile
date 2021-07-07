@@ -18,7 +18,9 @@ RUN apt-get update \
     php${php_ver}-opcache \
     php${php_ver}-mysql -y \
   && . /etc/apache2/envvars \
-  && rm -rf /var/lib/apt/lists/* && apt-get clean
+  && rm -rf /var/lib/apt/lists/* && apt-get clean \
+  && ln -sf /proc/self/fd/1 /var/log/apache2/access.log \
+  && ln -sf /proc/self/fd/2 /var/log/apache2/error.log
 
 RUN set -eux \
   && apt-get update \
