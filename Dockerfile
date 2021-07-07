@@ -22,6 +22,4 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/* && apt-get clean \
   && . /etc/apache2/envvars
 
-LABEL OS=${BASE_IMAGE} app="php,apache" maintainer="cht.andy@gmail.com" webserver="apache"
-COPY ./html/ /var/www/html/
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
