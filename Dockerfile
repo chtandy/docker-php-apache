@@ -17,10 +17,11 @@ RUN apt-get update \
     php${php_ver}-xml \
     php${php_ver}-opcache \
     php${php_ver}-mysql -y \
-  && rm -rf /var/lib/apt/lists/* && apt-get clean \
-  && . /etc/apache2/envvars
+  && . /etc/apache2/envvars \
+  && rm -rf /var/lib/apt/lists/* && apt-get clean
 
-RUN apt-get update \
+RUN set -eux \
+  && apt-get update \
   && apt-get install vim -y \
   && rm -rf /var/lib/apt/lists/* && apt-get clean \
   && echo "set fileencodings=ucs-bom,utf-8,big5,gb18030,euc-jp,euc-kr,latin1" >> /etc/vim/vimrc  \
