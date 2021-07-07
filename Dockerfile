@@ -1,7 +1,7 @@
-ARG BASE_IMAGE
+ARG BASE_IMAGE ubuntu:18.04
 FROM ${BASE_IMAGE}
 ARG DEBIAN_FRONTEND=noninteractive 
-ARG PHP_VERSION 
+ARG PHP_VERSION 7.3
 ARG php_ver=${PHP_VERSION:-""}
 
 RUN apt-get update \
