@@ -1,7 +1,7 @@
 version: '3'
 services:
   php-apache:
-    image: ${RUN_IMAGE}${PHP_VERSION:-""}
+    image: ${RUN_IMAGE}-${PHP_VERSION}:${IMAGE_TAG}
     build: 
       context: ./
       dockerfile: Dockerfile
