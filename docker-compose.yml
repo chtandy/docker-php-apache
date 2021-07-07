@@ -1,0 +1,21 @@
+version: '3'
+services:
+  php-apache:
+    image: ${RUN_IMAGE}${PHP_VERSION:-""}
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        BASE_IMAGE: ${BASE_IMAGE}
+        PHP_VERSION: ${PHP_VERSION:-""}
+    #environment:
+    #  DBHOST: "172.16.91.110"
+    container_name: php-apache
+    hostname: php-apache
+    restart: unless-stopped
+    volumes:
+      - ./html:/var/www/html
+    ports:
+      - "1080:80"
+      - "8443:443"
+
