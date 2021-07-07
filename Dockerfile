@@ -26,8 +26,9 @@ RUN set -eux \
   && apt-get update \
   && apt-get install vim -y \
   && rm -rf /var/lib/apt/lists/* && apt-get clean \
-  && echo "set fileencodings=ucs-bom,utf-8,big5,gb18030,euc-jp,euc-kr,latin1" >> /etc/vim/vimrc  \
-  && echo "set fileencoding=utf-8" >> /etc/vim/vimrc  \
-  && echo "set encoding=utf-8" >> /etc/vim/vimrc
+  && echo \
+"set fileencodings=ucs-bom,utf-8,big5,gb18030,euc-jp,euc-kr,latin1 \n\
+set fileencoding=utf-8 \n\
+set encoding=utf-8" >> /etc/vim/vimrc
 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
